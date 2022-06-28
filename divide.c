@@ -3,7 +3,7 @@ void divider(int a,int b);
 
 int main(int argc, char** argv) {
 	int divide,into;
-
+	
 	scanf("%d/%d",&into,&divide);
 	divider(into,divide);
 	return 0;
