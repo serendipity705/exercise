@@ -1,22 +1,27 @@
 #include <stdio.h>
+void divider(int a,int b);
 
 int main(int argc, char** argv) {
-	const int NUMBER=200;
-	int by[NUMBER];
-	int divide,into,fruit;
+	int divide,into;
 
 	scanf("%d/%d",&into,&divide);
-	printf("%d.",into/divide);
-	by[0]=into%divide*10;
-	for(int i=0; i<NUMBER; i++) {
-		fruit=by[i]/divide;
-		by[i+1]=by[i]%divide*10;
-		printf("%d",fruit%10);
-		if(by[i]%divide==0||i==NUMBER) {
+	divider(into,divide);
+	return 0;
+}
+
+void divider(int a,int b) {
+	int x,fruit;
+//	计算小数点前
+	printf("%d.",a / b);
+	x = a % b * 10;
+//	计算小数点后
+	for(int i = 0; i < 200; i++) {
+		fruit = x / b;
+		printf("%d",fruit % 10);
+		if(x % b == 0) {
 			printf("\n");
 			break;
 		}
-
+		x = x % b * 10;
 	}
-	return 0;
 }
